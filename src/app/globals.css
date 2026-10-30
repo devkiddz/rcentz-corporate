@@ -1,26 +1,102 @@
-@import "tailwindcss";
+
+@import 'tailwindcss';
+
+/* =========================================================
+   RCENTZ BRAND TYPOGRAPHY
+   ========================================================= */
+
+@font-face {
+  font-family: 'RcentzBrand';
+  src: url('/brands/rcentz/RcentzBrand-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  /* Brand palette */
+  --blue-100: #a1b0f2;
+  --blue-500: #4260e6;
+  --blue-600: #3048ad;
+  --blue-700: #1e2d78;
+  --blue-900: #0b143d;
+
+  /* Corporate surfaces */
+  --background: #030923;
+  --surface: #080f24;
+  --surface-elevated: #0d1735;
+
+  /* Text */
+  --foreground: #fafafa;
+  --muted-foreground: #a1b0f2;
+
+  /* Semantic colors */
+  --primary: #4260e6;
+  --primary-hover: #3048ad;
+  --primary-foreground: #ffffff;
+
+  /* Borders and controls */
+  --border: rgb(161 176 242 / 14%);
+  --input: rgb(161 176 242 / 18%);
+  --ring: #4260e6;
+
+  /* Effects */
+  --selection: rgb(66 96 230 / 30%);
 }
 
 @theme inline {
+  /* Brand colors */
+  --color-blue-100: var(--blue-100);
+  --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+  --color-blue-900: var(--blue-900);
+
+  /* Semantic colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-rcentz: 'RcentzBrand', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--foreground);
 }
