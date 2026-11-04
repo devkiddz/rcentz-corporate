@@ -1,6 +1,7 @@
 import { Shuffle, Activity } from 'lucide-react';
 
 import StripeParticles from './StripeParticles';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -34,27 +35,27 @@ export default function Home() {
 
         {/* Actions */}
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
+          <Link
             href="https://products.rcentz.cc"
-            className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_rgb(66_96_230/25%)] transition-all duration-300 hover:-translate-y-1 hover:bg-primary-hover hover:shadow-[0_0_45px_rgb(66_96_230/40%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_0_30px_rgb(0_109_253/25%)] transition-all duration-300 hover:-translate-y-1 hover:bg-primary-hover hover:shadow-[0_0_45px_rgb(0_109_253/40%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:w-64">
             <Shuffle
               size={17}
               strokeWidth={2}
               className="transition-all duration-300 group-hover:-rotate-360"
             />
             Explore Our Solutions
-          </a>
+          </Link>
 
-          <a
-            href="mailto:dennis@rcentz.cc"
-            className="group inline-flex items-center justify-center gap-3 rounded-full border border-blue-100/20 bg-blue-900/20 px-8 py-3.5 text-sm font-semibold text-blue-100 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100/50 hover:bg-blue-900/40 hover:shadow-[0_0_30px_rgb(66_96_230/15%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+          <Link
+            href="https://systems.rcentz.cc"
+            className="group inline-flex w-full items-center justify-center gap-3 rounded-full border border-blue-100/20 bg-blue-900/20 px-8 py-3.5 text-sm font-semibold text-blue-100 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100/50 hover:bg-blue-900/40 hover:shadow-[0_0_30px_rgb(0_109_253/15%)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:w-64">
             <Activity
               size={17}
               strokeWidth={2}
               className="transition-transform duration-300 group-hover:translate-x-1.5"
             />
             Work With Us
-          </a>
+          </Link>
         </div>
       </section>
     </main>
