@@ -91,9 +91,9 @@ export default function Navbar() {
   }, [closeNavigation]);
 
   // Close menus after route changes.
-  useEffect(() => {
-    closeNavigation();
-  }, [pathname, closeNavigation]);
+  // useEffect(() => {
+  //   closeNavigation();
+  // }, [pathname, closeNavigation]);
 
   // Clean up any pending close timer.
   useEffect(() => {
