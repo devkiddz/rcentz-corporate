@@ -1,0 +1,35 @@
+.field {
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+}
+.layer {
+  position: absolute;
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  will-change: transform, opacity;
+}
+.layerBack {
+  opacity: 0.74;
+  animation: drift-back 20s ease-in-out infinite alternate;
+}
+.layerFront {
+  opacity: 0.95;
+  animation: drift-front 15s ease-in-out infinite alternate;
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 48% 35% at 50% 43%, rgba(8,10,16,0.55), transparent 100%);
+}
+@keyframes drift-front {
+  from { transform: translate3d(-1.5%, -1%, 0); opacity: 0.75; }
+  to { transform: translate3d(1.5%, 1.5%, 0); opacity: 1; }
+}
+@keyframes drift-back {
+  from { transform: translate3d(1%, 2%, 0); opacity: 0.75; }
+  to { transform: translate3d(-1.5%, -1%, 0); opacity: 0.95; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .layer { animation: none; will-change: auto; }
+}

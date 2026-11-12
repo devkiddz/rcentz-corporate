@@ -105,7 +105,7 @@ export default function Navbar() {
       ref={headerRef}
       onMouseEnter={cancelClose}
       onMouseLeave={scheduleClose}
-      className="sticky top-0 z-50 w-full border-b border-white/[0.07] bg-background/85 backdrop-blur-2xl">
+      className="sticky top-0 z-50 w-full border-b border-[#dae5f1] bg-background/85 backdrop-blur-2xl">
       {/* MAIN NAVIGATION BAR */}
 
       <div className="relative mx-auto flex h-[68px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
@@ -237,7 +237,7 @@ export default function Navbar() {
                 key={item.label}
                 className="absolute left-1/2 top-full z-50 w-[min(760px,calc(100vw-3rem))] -translate-x-1/2 pt-3">
                 <div className="animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/40">
+                  <div className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-slate-900/10">
                     <div className="grid grid-cols-[1fr_240px]">
                       {/* MENU LINKS */}
 
@@ -355,7 +355,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-navigation"
-          className="absolute left-0 right-0 top-full border-b border-border bg-background shadow-2xl shadow-black/30 lg:hidden">
+          className="absolute left-0 right-0 top-full border-b border-border bg-background shadow-2xl shadow-slate-900/10 lg:hidden">
           <div className="max-h-[calc(100dvh-68px)] overflow-y-auto px-5 pb-8 pt-5 sm:px-8">
             {/* BRAND STATUS */}
 

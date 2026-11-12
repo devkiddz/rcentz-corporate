@@ -17,11 +17,11 @@
 }
 
 /* =========================================================
-   RCENTZ DESIGN SYSTEM — DARK
+   RCENTZ DESIGN SYSTEM — LIGHT FIRST
    ========================================================= */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Brand */
   --blue-100: #80b6fe;
@@ -31,20 +31,20 @@
   --blue-900: #00245c;
 
   /* Backgrounds */
-  --background: #09090b;
-  --foreground: #ededf0;
+  --background: #ffffff;
+  --foreground: #15243b;
 
   /* Surfaces */
-  --surface: #0c0c0f;
-  --surface-elevated: #111114;
+  --surface: #f7f9fc;
+  --surface-elevated: #eef4fa;
 
   /* Cards */
-  --card: #101013;
-  --card-foreground: #ededf0;
+  --card: #ffffff;
+  --card-foreground: #15243b;
 
   /* Popovers */
-  --popover: #141418;
-  --popover-foreground: #ededf0;
+  --popover: #ffffff;
+  --popover-foreground: #15243b;
 
   /* Brand actions */
   --primary: var(--blue-500);
@@ -52,24 +52,24 @@
   --primary-hover: var(--blue-600);
 
   /* Secondary */
-  --secondary: #19191e;
-  --secondary-foreground: #d4d4dc;
+  --secondary: #edf3fb;
+  --secondary-foreground: #213a59;
 
   /* Muted */
-  --muted: #19191e;
-  --muted-foreground: #85858f;
+  --muted: #edf3fb;
+  --muted-foreground: #63738b;
 
   /* Accent */
-  --accent: #101e38;
-  --accent-foreground: var(--blue-100);
+  --accent: #e8f1ff;
+  --accent-foreground: #0058d6;
 
   /* Semantic */
   --destructive: oklch(0.65 0.22 25);
 
   /* Borders */
-  --border: #27272d;
-  --input: #303038;
-  --ring: var(--blue-500);
+  --border: #dce5ef;
+  --input: #cbd9e7;
+  --ring: #006dfd;
 
   /* Effects */
   --selection: rgb(0 109 253 / 30%);
@@ -82,13 +82,13 @@
   --chart-5: var(--blue-900);
 
   /* Sidebar */
-  --sidebar: #0c0c0f;
-  --sidebar-foreground: #ededf0;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #15243b;
   --sidebar-primary: var(--blue-500);
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #19191e;
-  --sidebar-accent-foreground: var(--blue-100);
-  --sidebar-border: #27272d;
+  --sidebar-accent: #edf3fb;
+  --sidebar-accent-foreground: #0058d6;
+  --sidebar-border: #dce5ef;
   --sidebar-ring: var(--blue-500);
 
   --radius: 0.625rem;
@@ -182,7 +182,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {

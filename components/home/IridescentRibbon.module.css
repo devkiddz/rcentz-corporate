@@ -1,0 +1,10 @@
+.ribbonFlow {
+  transform-origin: 50% 50%;
+  animation: ribbonFloat 19s ease-in-out infinite alternate;
+}
+@keyframes ribbonFloat {
+  0% { transform: translateY(-11px) rotate(-1deg); }
+  50% { transform: translateY(9px) rotate(0.7deg); }
+  100% { transform: translateY(-5px) rotate(-0.6deg); }
+}
+@media (prefers-reduced-motion: reduce) { .ribbonFlow { animation: none; } }
