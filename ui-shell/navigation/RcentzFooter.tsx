@@ -3,23 +3,24 @@ import { ArrowUpRight, Mail } from 'lucide-react';
 import { RcentzBrandLockup } from '../brand/RcentzBrandLockup';
 import { RcentzGithubIcon } from '../brand/RcentzGithubIcon';
 import { projectEntryUrl } from '@/features/systems/lib/project-entry';
+import { systemsLinks } from '@/config/rcentz-apps';
 
 const groups = [
   {
     title: 'Build with us',
     links: [
-      ['Service catalogue', '/services'],
+      ['Services', '/services'],
       ['Solutions', '/solutions'],
       ['Our tools', '/tools'],
       ['How we work', '/how-we-work'],
-      ['Scope & pricing', '/pricing']
+      ['Scope & pricing', systemsLinks.pricing]
     ]
   },
   {
     title: 'Your project',
     links: [
       ['Start a project', projectEntryUrl],
-      ['Your workspace', '/dashboard'],
+      ['Your workspace', systemsLinks.dashboard],
       ['Remote delivery', '/remote-delivery'],
       ['Contact the team', 'mailto:contact@rcentz.cc']
     ]
@@ -27,9 +28,9 @@ const groups = [
   {
     title: 'Around Rcentz',
     links: [
-      ['Company', 'https://rcentz.cc/about'],
+      ['Company', '/about'],
       ['Products', 'https://products.rcentz.cc'],
-      ['Contact', 'https://rcentz.cc/contact'],
+      ['Contact', '/contact'],
       ['GitHub', 'https://github.com/devkiddz/rcentz-systems']
     ]
   }
@@ -60,7 +61,7 @@ export function RcentzFooter() {
         <div className="col-span-2 lg:col-span-1">
           <Link
             href="/"
-            aria-label="Rcentz Systems home"
+            aria-label="Rcentz home"
             className="inline-flex min-h-11 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <RcentzBrandLockup className="w-28" />
@@ -124,12 +125,12 @@ export function RcentzFooter() {
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-xs text-muted-foreground">
         <div className="space-y-1">
           <p>&copy; {new Date().getFullYear()} Rcentz. All rights reserved.</p>
-          <p>Systems&trade; is a product of Rcentz.</p>
+          <p>Rcentz Systems powers client onboarding and delivery.</p>
           <p>Rcentz product family: Waffi&trade; &middot; Products&trade; &middot; Business Suite&trade;</p>
         </div>
         <div className="flex flex-wrap items-center gap-5">
           <Link
-            href="/login"
+            href={systemsLinks.login}
             className="inline-flex min-h-11 items-center hover:text-foreground"
           >
             Account access

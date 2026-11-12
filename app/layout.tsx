@@ -13,7 +13,6 @@ import './globals.css';
 
 import { ThemeProvider } from '@/components/theme-provider';
 
-import { CustomerActivityDock } from '@/features/activity/components/CustomerActivityDock';
 
 import { Toaster } from '@/components/ui/toast';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -22,8 +21,8 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Systems | Rcentz',
-    template: '%s | Systems'
+    default: 'Rcentz',
+    template: '%s | Rcentz'
   },
   description: 'rcentz builds and operates modern software, digital products, and client systems.'
 };
@@ -54,7 +53,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             disableTransitionOnChange>
             <TooltipProvider>{children}</TooltipProvider>
 
-            <CustomerActivityDock />
             <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>

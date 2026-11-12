@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
-
-import { ServicesHero } from '@/features/services/components/hero/ServicesHero';
-
-import { SystemsOverviewSections } from '@/features/systems/components/SystemsOverviewSections';
+import CorporateHero from '@/components/corporate/CorporateHero';
+import { SystemsSolutionsSection } from '@/features/systems/components/SystemsSolutionsSection';
+import { SystemsWorkspaceSection } from '@/features/systems/components/SystemsWorkspaceSection';
+import { SystemsCallToActionSection } from '@/features/systems/components/SystemsCallToActionSection';
 
 export const metadata: Metadata = {
-  title: 'Rcentz Systems',
-  description:
-    'Business applications, customer experiences and connected workflows built around your operations.',
+  title: 'Rcentz',
+  description: 'Websites, software and connected digital systems built for people and businesses.',
 };
 
-export default function SystemsPage() {
+export default function HomePage() {
   return (
     <>
-      <ServicesHero />
-      <SystemsOverviewSections />
+      <CorporateHero />
+      <SystemsSolutionsSection />
+      <SystemsWorkspaceSection />
+      <SystemsCallToActionSection />
     </>
   );
 }

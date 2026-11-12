@@ -11,10 +11,8 @@ import { RcentzThemeControl } from '../theme/RcentzThemeControl';
 import { RcentzLanguageControl } from './RcentzLanguageControl';
 import { RcentzNavigation } from './RcentzNavigation';
 import { RcentzAccountActions } from './RcentzAccountActions';
-import { useAccountNavigation } from './use-account-navigation';
 
 export function RcentzHeader() {
-  const account = useAccountNavigation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -72,7 +70,7 @@ export function RcentzHeader() {
             <Link
               href="/"
               onClick={closeMobileNavigation}
-              aria-label="Rcentz Systems home"
+              aria-label="Rcentz home"
               className="flex shrink-0 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               <RcentzBrandLockup className="w-26 shrink-0 md:w-28 xl:w-32" />
             </Link>
@@ -83,14 +81,14 @@ export function RcentzHeader() {
 
             <div className="hidden shrink-0 items-center gap-3 xl:flex">
               <a
-                href="https://github.com/devkiddz/rcentz-systems"
+                href="https://github.com/devkiddz/rcentz-corporate"
                 aria-label="Rcentz Systems on GitHub"
                 className="flex size-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <RcentzGithubIcon aria-hidden="true" className="size-4" />
               </a>
               <RcentzLanguageControl />
               <RcentzThemeControl />
-              <RcentzAccountActions account={account} compact={scrolled} />
+              <RcentzAccountActions compact={scrolled} />
             </div>
 
             <div className="flex shrink-0 items-center gap-1 xl:hidden">
@@ -120,7 +118,7 @@ export function RcentzHeader() {
                 <div className="mt-3 space-y-3 border-t border-border pt-3">
                   <RcentzThemeControl mobile />
                   <div className="min-w-0 flex-1">
-                    <RcentzAccountActions account={account} mobile onNavigate={closeMobileNavigation} />
+                    <RcentzAccountActions mobile onNavigate={closeMobileNavigation} />
                   </div>
                 </div>
               </>

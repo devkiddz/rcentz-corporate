@@ -95,7 +95,7 @@ export function SystemsCallToActionSection() {
                   <ArrowUpRight aria-hidden="true" className="size-3" />
                 </Link>
                 <Link
-                  href="/#how-we-work"
+                  href="/services#how-we-work"
                   className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-3 text-[10px] font-medium hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                   Explore the workspace
                 </Link>
