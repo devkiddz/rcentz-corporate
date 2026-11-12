@@ -4,9 +4,9 @@
  * Nothing in the hero's markup, navigation, or layout changes.
  */
 export const atmosphereSettings = {
-  backgroundColor: '#F8FBFF',
-  primaryColor: '#006DFD',
-  highlightColor: '#80B6FE',
+  primaryToken: '--blue-500',
+  highlightToken: '--blue-900',
+  navyParticleFraction: 0.24,
 
   // Expanded but bounded silhouette, measured relative to the viewport.
   clusterAnchorX: 0.43,

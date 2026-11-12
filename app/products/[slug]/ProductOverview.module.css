@@ -1,0 +1,71 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(128deg, var(--blue-900), color-mix(in srgb, var(--blue-900) 84%, var(--foreground)));
+  color: var(--background);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(to right, color-mix(in srgb, var(--blue-100) 9%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--blue-100) 9%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.shell { width: min(100% - 44px, 1320px); margin-inline: auto; }
+.back { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; font-size: 13px; color: var(--blue-100); text-decoration: none; font-weight: 650; }
+.back:hover { color: var(--background); }
+.back:focus-visible, .actions a:focus-visible { outline: 2px solid var(--blue-100); outline-offset: 4px; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(28px, 5vw, 86px); padding-block: clamp(50px, 7vw, 95px) clamp(76px, 8vw, 118px); }
+.eyebrow { margin: 0; font-size: 11px; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; color: var(--blue-100); }
+.eyebrow span { opacity: .5; margin-inline: 8px; }
+.copy h1 { margin: 18px 0 0; font-size: clamp(54px, 6.7vw, 108px); line-height: 1; letter-spacing: -.067em; font-weight: 720; }
+.copy h1 span { color: var(--blue-100); }
+.copy h2 { margin: 26px 0 0; max-width: 570px; font-size: clamp(26px, 3vw, 42px); line-height: 1.12; letter-spacing: -.045em; font-weight: 650; }
+.description { margin: 22px 0 0; max-width: 530px; font-size: 16px; line-height: 1.8; color: color-mix(in srgb, var(--background) 78%, transparent); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 17px 24px; margin-top: 29px; }
+.primaryAction, .secondaryAction { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: 13px; font-weight: 700; text-decoration: none; min-height: 44px; }
+.primaryAction { border-radius: 8px; padding-inline: 18px; background: var(--blue-500); color: var(--background); }
+.primaryAction:hover { background: var(--blue-600); }
+.secondaryAction { color: var(--blue-100); }
+.secondaryAction:hover { color: var(--background); }
+.visual { position: relative; overflow: hidden; border: 1px solid color-mix(in srgb, var(--blue-100) 25%, transparent); border-radius: 22px; background: var(--surface); color: var(--foreground); box-shadow: 0 38px 90px color-mix(in srgb, var(--foreground) 28%, transparent); }
+.visualHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 21px; background: var(--surface-elevated); border-bottom: 1px solid var(--border); color: var(--blue-600); }
+.visualHeader span { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 730; letter-spacing: .14em; }
+.visualHeader i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--blue-500); }
+.visualBody { padding: clamp(25px, 4vw, 52px); background-image: radial-gradient(ellipse at 75% 15%, color-mix(in srgb, var(--blue-100) 22%, transparent), transparent 58%); }
+.visualKicker { color: var(--blue-600); font-size: 10px; font-weight: 760; letter-spacing: .18em; }
+.visualBody h3 { margin: 14px 0 30px; font-size: clamp(23px, 2.4vw, 32px); letter-spacing: -.045em; line-height: 1.2; max-width: 440px; }
+.flow { display: grid; gap: 10px; }
+.flowStep { display: flex; align-items: center; gap: 14px; padding: 15px 17px; border: 1px solid var(--border); border-radius: 11px; background: var(--card); box-shadow: 0 7px 15px color-mix(in srgb, var(--foreground) 4%, transparent); }
+.stepIndex { font-size: 11px; font-weight: 750; color: var(--blue-500); }
+.flowStep strong { flex: 1; font-size: 14px; font-weight: 680; }
+.flowStep > span { color: var(--blue-500); }
+.visualFooter { margin: 27px 0 0; font-size: 12px; color: var(--muted-foreground); }
+.details { padding-block: 72px 94px; background: var(--background); }
+.details .eyebrow { color: var(--blue-600); }
+.detailsIntro h2 { margin: 13px 0 0; font-size: clamp(28px, 3.4vw, 43px); line-height: 1.15; letter-spacing: -.04em; color: var(--foreground); }
+.focusGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; margin-top: 34px; }
+.focusCard { min-width: 0; padding: 25px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface); }
+.focusCard > span { color: var(--blue-500); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; }
+.focusCard h3 { margin: 17px 0 10px; font-size: 20px; letter-spacing: -.025em; color: var(--foreground); }
+.focusCard p { margin: 0; font-size: 14px; line-height: 1.75; color: var(--muted-foreground); }
+@media (max-width: 860px) {
+  .heroGrid { grid-template-columns: 1fr; gap: 38px; padding-top: 55px; }
+  .copy h1 { font-size: clamp(54px, 11vw, 82px); }
+  .visual { max-width: 690px; }
+}
+@media (max-width: 600px) {
+  .shell { width: min(100% - 36px, 1320px); }
+  .back { margin-top: 25px; }
+  .heroGrid { padding-block: 46px 64px; }
+  .copy h1 { font-size: clamp(48px, 12vw, 67px); }
+  .copy h2 { font-size: 28px; margin-top: 20px; }
+  .description { font-size: 14px; }
+  .focusGrid { grid-template-columns: 1fr; }
+  .details { padding-block: 49px 66px; }
+  .visualBody { padding: 24px; }
+  .visualHeader { padding: 13px 15px; }
+}

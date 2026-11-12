@@ -5,7 +5,7 @@
   isolation: isolate;
   overflow: hidden;
   pointer-events: none;
-  background: #f8fbff;
+  background: var(--background);
 }
 .canvas {
   display: block;
@@ -16,5 +16,5 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 44% 32% at 50% 42%, rgb(255 255 255 / 0.48), transparent 100%);
+  background: radial-gradient(ellipse 44% 32% at 50% 42%, color-mix(in srgb, var(--background) 48%, transparent), transparent 100%);
 }

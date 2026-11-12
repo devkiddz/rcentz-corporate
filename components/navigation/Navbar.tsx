@@ -7,7 +7,11 @@ import { usePathname } from 'next/navigation';
 
 import { ArrowUpRight, ChevronDown, Circle, Menu, X } from 'lucide-react';
 
-import { navigationItems, navigationActions, brandStatus } from '@/config/navigation-items';
+import {
+  navigationItems,
+  navigationActions,
+  brandStatus
+} from '@/config/navigation-items';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -115,22 +119,26 @@ export default function Navbar() {
           href="https://rcentz.cc"
           aria-label="Rcentz home"
           onClick={closeNavigation}
-          className="group flex shrink-0 items-center gap-2.5">
+          className="group flex shrink-0 items-center gap-1">
           <Image
-            src="https://api.rcentz.cc/brands/rcentz/rcentz-mark-dark.svg"
+            src="https://api.rcentz.cc/brands/rcentz/rcentz-mark-light.svg"
             alt=""
-            width={36}
-            height={36}
+            width={20}
+            height={20}
             priority
-            className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-5 h-5 object-contain transition-transform duration-300 group-hover:scale-105"
           />
 
-          <span className="font-rcentz text-[25px] leading-none text-foreground">rcentz</span>
+          <span className="font-RcentzDisplay-Bolder font-bold text-[20px] leading-none text-foreground">
+            rcentz
+          </span>
         </Link>
 
         {/* DESKTOP NAVIGATION */}
 
-        <nav aria-label="Main navigation" className="hidden h-full items-center gap-1 lg:flex">
+        <nav
+          aria-label="Main navigation"
+          className="hidden h-full items-center gap-1 lg:flex">
           {navigationItems.map(item => {
             const hasChildren = !!item.items?.length;
             const active = isGroupActive(item.href, item.items);
@@ -144,7 +152,9 @@ export default function Navbar() {
                   onClick={closeNavigation}
                   aria-current={active ? 'page' : undefined}
                   className={`relative flex h-full items-center px-4 text-[13px] font-medium transition-colors ${
-                    active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                    active
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
                   }`}>
                   {item.label}
 
@@ -164,7 +174,9 @@ export default function Navbar() {
                 onMouseEnter={() => openDropdown(item.label)}
                 onFocus={() => openDropdown(item.label)}
                 className={`flex h-full items-center gap-1.5 px-4 text-[13px] font-medium transition-colors ${
-                  opened || active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  opened || active
+                    ? 'text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}>
                 {item.label}
 
@@ -274,7 +286,9 @@ export default function Navbar() {
                                 <div className="flex items-center justify-between gap-2">
                                   <span
                                     className={`text-[13px] font-semibold ${
-                                      childActive ? 'text-primary' : 'text-card-foreground'
+                                      childActive
+                                        ? 'text-primary'
+                                        : 'text-card-foreground'
                                     }`}>
                                     {child.label}
                                   </span>
@@ -311,7 +325,11 @@ export default function Navbar() {
                       <div className="flex flex-col justify-between border-l border-border bg-surface p-6">
                         <div>
                           <div className="mb-5 flex h-9 w-9 items-center justify-center rounded-lg border border-primary/20 bg-primary/10">
-                            <Circle size={12} fill="currentColor" className="text-primary" />
+                            <Circle
+                              size={12}
+                              fill="currentColor"
+                              className="text-primary"
+                            />
                           </div>
 
                           <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
@@ -323,13 +341,18 @@ export default function Navbar() {
                           </h3>
 
                           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                            Building digital systems, products and solutions that move businesses forward.
+                            Building digital systems, products and solutions that move
+                            businesses forward.
                           </p>
                         </div>
 
                         <div className="mt-8 border-t border-border pt-4">
                           <div className="flex items-center gap-2 text-[10px] font-medium text-muted-foreground">
-                            <Circle size={7} fill="currentColor" className="text-primary" />
+                            <Circle
+                              size={7}
+                              fill="currentColor"
+                              className="text-primary"
+                            />
                             {brandStatus.label}
                           </div>
 
@@ -365,7 +388,9 @@ export default function Navbar() {
                   Rcentz Digital Solutions
                 </p>
 
-                <p className="mt-1 text-sm font-semibold text-foreground">Everything happens for me.</p>
+                <p className="mt-1 text-sm font-semibold text-foreground">
+                  Everything happens for me.
+                </p>
               </div>
 
               <div className="flex items-center gap-2 text-[10px] font-medium text-primary">
@@ -390,7 +415,9 @@ export default function Navbar() {
                       onClick={closeNavigation}
                       aria-current={active ? 'page' : undefined}
                       className={`flex items-center justify-between rounded-lg px-4 py-3.5 text-[13px] font-medium transition-colors ${
-                        active ? 'bg-accent text-primary' : 'text-foreground hover:bg-surface-elevated'
+                        active
+                          ? 'bg-accent text-primary'
+                          : 'text-foreground hover:bg-surface-elevated'
                       }`}>
                       {item.label}
 
@@ -442,7 +469,9 @@ export default function Navbar() {
                                   ? 'bg-accent text-primary'
                                   : 'text-muted-foreground hover:bg-surface-elevated hover:text-foreground'
                               }`}>
-                              <span className="block text-[12px] font-semibold">{child.label}</span>
+                              <span className="block text-[12px] font-semibold">
+                                {child.label}
+                              </span>
 
                               {child.description && (
                                 <span className="mt-1 block text-[11px] leading-relaxed text-muted-foreground">

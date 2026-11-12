@@ -113,7 +113,7 @@ function createDots(width: number, height: number): Dot[] {
         size: settings.squareSize * (0.82 + 0.28 * hash(col, row, 55)),
         opacity: settings.overallOpacity * (0.57 + 0.43 * edge) *
           (0.80 + 0.20 * hash(col, row, 56)),
-        highlight: hash(col, row, 57) > 0.94,
+        highlight: hash(col, row, 57) > 1 - settings.navyParticleFraction,
         rotates: hash(col, row, 59) < settings.rotatingFraction,
         baseAngle: (hash(col, row, 61) * 2 - 1) *
           settings.randomRotationDegrees * Math.PI / 180,
@@ -145,7 +145,7 @@ export default function SiteAtmosphere() {
     if (!root || !canvas) return;
     // Capture a non-null element for nested animation callbacks.
     const rootElement = root;
-    const context = canvas.getContext('2d', { alpha: false });
+    const context = canvas.getContext('2d', { alpha: true });
     if (!context) return;
 
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -165,11 +165,17 @@ export default function SiteAtmosphere() {
     let pointerY = -10000;
     const interval = 1000 / settings.frameRate;
 
+    // Read existing design tokens once. Canvas fillStyle needs concrete colors.
+    const themeStyles = getComputedStyle(document.documentElement);
+    const palette = {
+      primary: themeStyles.getPropertyValue(settings.primaryToken).trim(),
+      highlight: themeStyles.getPropertyValue(settings.highlightToken).trim()
+    };
+
     function draw(seconds: number) {
       const ctx = context!;
       ctx.globalAlpha = 1;
-      ctx.fillStyle = settings.backgroundColor;
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
       const clocks = getClocks(seconds);
       // One subtle whole-shape sway; squares each have independent rotation.
       const sway = Math.sin(seconds * settings.clusterSwaySpeed) *
@@ -228,7 +234,7 @@ export default function SiteAtmosphere() {
 
         const size = dot.size * (0.80 + 0.20 * maturity);
         ctx.globalAlpha = clamp(alpha, 0, 1);
-        ctx.fillStyle = dot.highlight ? settings.highlightColor : settings.primaryColor;
+        ctx.fillStyle = dot.highlight ? palette.highlight : palette.primary;
         if (dot.rotates) {
           // Only a configurable fraction need transform work each frame.
           // This stays cheap compared with the old glow/physics animation.

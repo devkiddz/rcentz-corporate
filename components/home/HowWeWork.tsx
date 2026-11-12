@@ -19,9 +19,8 @@ const impact = [
 ] as const;
 
 /**
- * The first editorial section beneath the technology tape.
- * This component is intentionally server-rendered: the illustration is a
- * lightweight, standalone SVG and no new client-side animation is needed.
+ * M39: Compact editorial layout; existing lightweight SVG framed without client JS.
+ * All brand colors come from the corporate theme tokens.
  */
 export default function HowWeWork() {
   return (
@@ -65,22 +64,28 @@ export default function HowWeWork() {
           </div>
         </div>
 
-        <div className={styles.visual}>
-          <div className={styles.visualGlow} aria-hidden="true" />
-          <Image
-            src="/illustrations/rcentz-connected-work.svg"
-            alt="Illustration of Rcentz connecting business goals to thoughtful design, useful systems and a better customer experience"
-            width={720}
-            height={570}
-            className={styles.illustration}
-            unoptimized
-            priority={false}
-          />
-          <p className={styles.visualCaption}>
+        <figure className={styles.visual}>
+          <div className={styles.visualHeader}>
+            <span className={styles.visualHeaderMark} aria-hidden="true" />
+            <span>Connected by design</span>
+            <span className={styles.visualHeaderBrand}>RCENTZ</span>
+          </div>
+          <div className={styles.visualStage}>
+            <div className={styles.visualGlow} aria-hidden="true" />
+            <Image
+              src="/illustrations/rcentz-connected-work.svg"
+              alt="Rcentz turning business goals into purposeful software and better customer experiences"
+              width={720}
+              height={570}
+              className={styles.illustration}
+              unoptimized
+            />
+          </div>
+          <figcaption className={styles.visualCaption}>
             <span className={styles.captionMarker} aria-hidden="true" />
             Thoughtful process. Useful outcomes.
-          </p>
-        </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
