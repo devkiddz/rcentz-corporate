@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -29,21 +29,24 @@ const stories = [
     id: 'discover',
     label: '01 / Discover',
     focus: 'Help customers find you',
-    description: 'A clear digital presence turns an initial search into a confident first enquiry.',
+    description:
+      'A clear digital presence turns an initial search into a confident first enquiry.',
     kind: 'discover'
   },
   {
     id: 'organize',
     label: '02 / Organize',
     focus: 'Make everyday work simpler',
-    description: 'Connected tools bring customer requests and team activity into one useful workflow.',
+    description:
+      'Connected tools bring customer requests and team activity into one useful workflow.',
     kind: 'organize'
   },
   {
     id: 'deliver',
     label: '03 / Deliver',
     focus: 'Keep customers in the loop',
-    description: 'Thoughtful product experiences make progress, updates and delivery easier to follow.',
+    description:
+      'Thoughtful product experiences make progress, updates and delivery easier to follow.',
     kind: 'deliver'
   }
 ] as const;
@@ -57,23 +60,33 @@ function Preview({ kind }: { kind: StoryKind }) {
         <div className={styles.previewEyebrow}>BUSINESS WEBSITE / DISCOVERY</div>
         <div className={styles.websiteHero}>
           <div className={styles.websiteCopy}>
-            <span className={styles.eyebrowPill}><Globe2 size={12} /> Digital storefront</span>
+            <span className={styles.eyebrowPill}>
+              <Globe2 size={12} /> Digital storefront
+            </span>
             <strong>Your business, easy to discover.</strong>
             <small>Give people a clear way to see what you offer and get in touch.</small>
-            <span className={styles.demoCta}>Explore services <ArrowRight size={12} /></span>
+            <span className={styles.demoCta}>
+              Explore services <ArrowRight size={12} />
+            </span>
           </div>
           <div className={styles.websiteArtwork} aria-hidden="true">
             <span className={styles.artCircle} />
             <span className={styles.artWindow}>
-              <span /><span /><span />
+              <span />
+              <span />
+              <span />
             </span>
             <MousePointer2 size={21} className={styles.artCursor} />
           </div>
         </div>
         <div className={styles.serviceList}>
-          <span>Services</span><span>Product catalogue</span><span>Contact</span>
+          <span>Services</span>
+          <span>Product catalogue</span>
+          <span>Contact</span>
         </div>
-        <div className={styles.inlineResult}><MessageCircle size={14} /> Enquiry ready to send <CheckCircle2 size={14} /></div>
+        <div className={styles.inlineResult}>
+          <MessageCircle size={14} /> Enquiry ready to send <CheckCircle2 size={14} />
+        </div>
       </div>
     );
   }
@@ -87,26 +100,45 @@ function Preview({ kind }: { kind: StoryKind }) {
             <strong>One place for the work.</strong>
             <small>Requests, handoffs and follow-ups — connected.</small>
           </div>
-          <span className={styles.liveTag}><span /> Workspace</span>
+          <span className={styles.liveTag}>
+            <span /> Workspace
+          </span>
         </div>
         <div className={styles.requestList}>
           <div className={styles.requestRow}>
-            <span className={styles.requestIcon}><MessageCircle size={15}/></span>
-            <span className={styles.requestText}><strong>Customer request</strong><small>New enquiry received</small></span>
+            <span className={styles.requestIcon}>
+              <MessageCircle size={15} />
+            </span>
+            <span className={styles.requestText}>
+              <strong>Customer request</strong>
+              <small>New enquiry received</small>
+            </span>
             <span className={styles.requestTag}>New</span>
           </div>
           <div className={styles.requestRow}>
-            <span className={styles.requestIcon}><Workflow size={15}/></span>
-            <span className={styles.requestText}><strong>Team follow-up</strong><small>Assigned to the right person</small></span>
-            <CheckCircle2 size={16} className={styles.requestDone}/>
+            <span className={styles.requestIcon}>
+              <Workflow size={15} />
+            </span>
+            <span className={styles.requestText}>
+              <strong>Team follow-up</strong>
+              <small>Assigned to the right person</small>
+            </span>
+            <CheckCircle2 size={16} className={styles.requestDone} />
           </div>
           <div className={styles.requestRow}>
-            <span className={styles.requestIcon}><ClipboardCheck size={15}/></span>
-            <span className={styles.requestText}><strong>Next action</strong><small>Ready to proceed</small></span>
-            <CheckCircle2 size={16} className={styles.requestDone}/>
+            <span className={styles.requestIcon}>
+              <ClipboardCheck size={15} />
+            </span>
+            <span className={styles.requestText}>
+              <strong>Next action</strong>
+              <small>Ready to proceed</small>
+            </span>
+            <CheckCircle2 size={16} className={styles.requestDone} />
           </div>
         </div>
-        <div className={styles.inlineResult}><Check size={14}/> Less manual chasing. More clarity.</div>
+        <div className={styles.inlineResult}>
+          <Check size={14} /> Less manual chasing. More clarity.
+        </div>
       </div>
     );
   }
@@ -117,22 +149,40 @@ function Preview({ kind }: { kind: StoryKind }) {
       <div className={styles.deliveryHeading}>
         <div>
           <strong>Make every step feel clear.</strong>
-          <small>Customers know what's happening next.</small>
+          <small>Customers know what&apos;s happening next.</small>
         </div>
-        <span className={styles.deliveryIcon}><PackageCheck size={22}/></span>
+        <span className={styles.deliveryIcon}>
+          <PackageCheck size={22} />
+        </span>
       </div>
       <div className={styles.deliveryStatus}>
-        <span className={styles.statusSymbol}><CheckCircle2 size={22}/></span>
-        <span><strong>Request confirmed</strong><small>Your request is being taken care of.</small></span>
+        <span className={styles.statusSymbol}>
+          <CheckCircle2 size={22} />
+        </span>
+        <span>
+          <strong>Request confirmed</strong>
+          <small>Your request is being taken care of.</small>
+        </span>
       </div>
       <div className={styles.timeline}>
-        <span className={styles.timelineStep}><Check size={13}/><small>Received</small></span>
-        <span className={styles.timelineConnector}/>
-        <span className={styles.timelineStep}><Clock3 size={13}/><small>In progress</small></span>
-        <span className={styles.timelineConnector}/>
-        <span className={styles.timelineStep}><PackageCheck size={13}/><small>Delivery</small></span>
+        <span className={styles.timelineStep}>
+          <Check size={13} />
+          <small>Received</small>
+        </span>
+        <span className={styles.timelineConnector} />
+        <span className={styles.timelineStep}>
+          <Clock3 size={13} />
+          <small>In progress</small>
+        </span>
+        <span className={styles.timelineConnector} />
+        <span className={styles.timelineStep}>
+          <PackageCheck size={13} />
+          <small>Delivery</small>
+        </span>
       </div>
-      <div className={styles.inlineResult}><MessageCircle size={14}/> Updates that build confidence.</div>
+      <div className={styles.inlineResult}>
+        <MessageCircle size={14} /> Updates that build confidence.
+      </div>
     </div>
   );
 }
@@ -191,19 +241,23 @@ export default function AboutIllustration() {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={event => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false);
-      }}
-    >
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+          setPaused(false);
+      }}>
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.halo} aria-hidden="true" />
       <StaticHeroParticles />
 
       <div className={styles.heading}>
         <div>
-          <div className={styles.eyebrow}><span /> DIGITAL SOLUTIONS IN ACTION</div>
+          <div className={styles.eyebrow}>
+            <span /> DIGITAL SOLUTIONS IN ACTION
+          </div>
           <div className={styles.title}>From business need to better experiences.</div>
         </div>
-        <span className={styles.cornerMark} aria-hidden="true"><Layers3 size={20}/></span>
+        <span className={styles.cornerMark} aria-hidden="true">
+          <Layers3 size={20} />
+        </span>
       </div>
 
       <div className={styles.deck}>
@@ -220,12 +274,19 @@ export default function AboutIllustration() {
               aria-label={`Show ${story.focus} concept`}
               aria-pressed={position === 0}
               tabIndex={position === 0 ? 0 : -1}
-              onClick={() => setActiveIndex(index)}
-            >
+              onClick={() => setActiveIndex(index)}>
               <span className={styles.windowBar}>
-                <span className={styles.windowDots} aria-hidden="true"><i/><i/><i/></span>
-                <span className={styles.windowBrand}>RCENTZ / <span>{story.id.toUpperCase()}</span></span>
-                <span className={styles.connection}><span /> Connected</span>
+                <span className={styles.windowDots} aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className={styles.windowBrand}>
+                  RCENTZ / <span>{story.id.toUpperCase()}</span>
+                </span>
+                <span className={styles.connection}>
+                  <span /> Connected
+                </span>
               </span>
               <Preview kind={story.kind} />
             </button>
