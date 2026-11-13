@@ -1,21 +1,23 @@
 import type { Metadata } from 'next';
 import CorporateHero from '@/components/corporate/CorporateHero';
-import { SystemsSolutionsSection } from '@/features/systems/components/SystemsSolutionsSection';
-import { SystemsWorkspaceSection } from '@/features/systems/components/SystemsWorkspaceSection';
-import { SystemsCallToActionSection } from '@/features/systems/components/SystemsCallToActionSection';
+import TechStackTape from '@/components/home/TechStackTape';
+import WhoWeAre from '@/components/home/WhoWeAre';
+import { CorporateCompanySection } from '@/components/corporate/CorporateCompanySection';
+import { CorporateProductDirectionsSection } from '@/components/corporate/CorporateProductDirectionsSection';
 
 export const metadata: Metadata = {
   title: 'Rcentz',
-  description: 'Websites, software and connected digital systems built for people and businesses.',
+  description: 'Discover the Rcentz company, client solutions through Rcentz Systems and our original digital product ideas.',
 };
 
 export default function HomePage() {
   return (
     <>
       <CorporateHero />
-      <SystemsSolutionsSection />
-      <SystemsWorkspaceSection />
-      <SystemsCallToActionSection />
+      <TechStackTape />
+      <WhoWeAre />
+      <CorporateCompanySection />
+      <CorporateProductDirectionsSection />
     </>
   );
 }

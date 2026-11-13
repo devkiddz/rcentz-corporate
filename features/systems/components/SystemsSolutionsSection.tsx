@@ -17,9 +17,9 @@ import {
 const views = [
   {
     label: 'Customers',
-    title: 'A clear way to reach your business.',
+    title: 'A simpler way for customers to reach you.',
     description:
-      'Give business clients a dedicated place to submit requirements, review quotations and follow delivery with your team.',
+      'Create places where customers can discover your services, send requests and stay informed without chasing updates.',
     capabilities: [
       'Business accounts and client portals',
       'Requests and progress updates',
@@ -29,9 +29,9 @@ const views = [
   },
   {
     label: 'Operations',
-    title: 'Turn incoming requests into organised work.',
+    title: 'Bring everyday work into one clear flow.',
     description:
-      'Turn client requirements into assigned work, clear approval stages and delivery milestones. Give your team visibility into who owns each task and what needs to happen next.',
+      'Organise requests, approvals and tasks around the people responsible for them, so teams can see what needs attention.',
     capabilities: [
       'Assigned tasks and responsibilities',
       'Review and approval workflows',
@@ -41,9 +41,9 @@ const views = [
   },
   {
     label: 'Information',
-    title: 'Keep the whole business working from the same information.',
+    title: 'Give teams a shared view of what matters.',
     description:
-      'Connect customer records, project activity and business tools so updates stay useful across your operations.',
+      'Connect records and activity across your tools so useful information does not get trapped in separate places.',
     capabilities: [
       'Connected customer and project records',
       'Integrations between business tools',
@@ -315,7 +315,7 @@ function WorkspacePreview({ selected }: { selected: number }) {
   );
 }
 
-export function SystemsSolutionsSection() {
+export function SystemsSolutionsSection({ narrative = 'services' }: { narrative?: 'corporate' | 'services' }) {
   const [selected, setSelected] = useState(0);
   const view = views[selected];
 
@@ -327,24 +327,35 @@ export function SystemsSolutionsSection() {
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.7fr] lg:gap-12">
         <p className="inline-flex h-fit w-fit self-start items-center gap-2 rounded-full border border-border bg-surface-subtle px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-accent" />
-          Solutions
+          {narrative === 'corporate' ? 'Our capabilities' : 'Business solutions'}
         </p>
         <div className="min-w-0">
           <h2
             id="systems-solutions-title"
             className={rcentzTypography.className + ' font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
             <span className="block font-semibold text-muted-foreground lg:pl-12">
-              Built for your customers.
+              {narrative === 'corporate' ? 'One company.' : 'Better customer experiences.'}
             </span>
             <span className="mt-2 block font-extrabold text-foreground">
-              Connected to your operations.
+              {narrative === 'corporate' ? 'Connected capabilities.' : 'Smoother work behind the scenes.'}
             </span>
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-6 sm:text-base sm:leading-7 text-muted-foreground">
-            <strong className="font-medium text-foreground">
-              Bring us your business needs. We build the software.
-            </strong>{' '}
-            Connect client requests, team approvals and delivery in one workspace.
+            {narrative === 'corporate' ? (
+              <>
+                <strong className="font-medium text-foreground">
+                  Customer experiences and business operations belong in the same conversation.
+                </strong>{' '}
+                We connect the digital experiences people use with the systems and information teams rely on.
+              </>
+            ) : (
+              <>
+                <strong className="font-medium text-foreground">
+                  Designed around your requirements.
+                </strong>{' '}
+                We connect the customer journey with the workflows that keep your business moving.
+              </>
+            )}
           </p>
         </div>
       </div>

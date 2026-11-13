@@ -24,13 +24,14 @@ export function GlobeSphere() {
     let size = 0;
     let rotation = 0;
     let previousTime = 0;
-    let accent = '#169f96';
-    let background = '#fafafa';
+    let accent = '#006DFD';
+    let darkMode = false;
 
     function updateColors() {
-      const styles = getComputedStyle(document.documentElement);
-      accent = styles.getPropertyValue('--theme-accent').trim() || accent;
-      background = styles.getPropertyValue('--background').trim() || background;
+      const root = document.documentElement;
+      const styles = getComputedStyle(root);
+      accent = styles.getPropertyValue('--theme-accent').trim() || '#006DFD';
+      darkMode = root.classList.contains('dark');
     }
 
     function draw() {
@@ -39,19 +40,28 @@ export function GlobeSphere() {
 
       const center = size / 2;
       const radius = size * 0.43;
-      const shade = context.createRadialGradient(
-        center - radius * 0.4, center - radius * 0.4, 0,
-        center, center, radius,
+      // Light: clean pearl-blue haze; dark: controlled sapphire depth.
+      const atmosphere = context.createRadialGradient(
+        center - radius * 0.17,
+        center - radius * 0.2,
+        radius * 0.04,
+        center,
+        center,
+        radius * 1.08,
       );
-      shade.addColorStop(0, accent);
-      shade.addColorStop(1, background);
-
-      context.globalAlpha = 0.13;
-      context.fillStyle = shade;
+      if (darkMode) {
+        atmosphere.addColorStop(0, 'rgba(0,109,253,0.24)');
+        atmosphere.addColorStop(0.52, 'rgba(0,109,253,0.095)');
+        atmosphere.addColorStop(1, 'rgba(0,109,253,0)');
+      } else {
+        atmosphere.addColorStop(0, 'rgba(0,109,253,0.12)');
+        atmosphere.addColorStop(0.57, 'rgba(0,109,253,0.045)');
+        atmosphere.addColorStop(1, 'rgba(0,109,253,0)');
+      }
+      context.fillStyle = atmosphere;
       context.beginPath();
       context.arc(center, center, radius, 0, Math.PI * 2);
       context.fill();
-      context.globalAlpha = 1;
 
       const cosine = Math.cos(rotation);
       const sine = Math.sin(rotation);
@@ -70,7 +80,9 @@ export function GlobeSphere() {
 
       context.fillStyle = accent;
       for (const point of projected) {
-        context.globalAlpha = 0.06 + point.depth * point.depth * 0.88;
+        context.globalAlpha = darkMode
+          ? 0.13 + point.depth * point.depth * 0.80
+          : 0.08 + point.depth * point.depth * 0.72;
         context.beginPath();
         context.arc(
           point.x, point.y,
@@ -82,39 +94,60 @@ export function GlobeSphere() {
 
       context.globalAlpha = 1;
 
-      // A solid nucleus inside the rotating spherical shell.
+      // Theme-aware Core: pearl surface by day, ink-blue glass at night.
       const coreRadius = size * 0.17;
       const nucleus = context.createRadialGradient(
-        center - coreRadius * 0.45,
-        center - coreRadius * 0.45,
-        coreRadius * 0.03,
+        center - coreRadius * 0.36,
+        center - coreRadius * 0.4,
+        coreRadius * 0.02,
+        center + coreRadius * 0.16,
         center + coreRadius * 0.2,
-        center + coreRadius * 0.25,
-        coreRadius * 1.25,
+        coreRadius * 1.15,
       );
-      nucleus.addColorStop(0, accent);
-      nucleus.addColorStop(0.4, background);
-      nucleus.addColorStop(1, background);
+      if (darkMode) {
+        nucleus.addColorStop(0, '#234D84');
+        nucleus.addColorStop(0.26, '#173965');
+        nucleus.addColorStop(0.58, '#0D284B');
+        nucleus.addColorStop(0.84, '#081A34');
+        nucleus.addColorStop(1, '#051226');
+      } else {
+        nucleus.addColorStop(0, '#FFFFFF');
+        nucleus.addColorStop(0.26, '#F6FAFF');
+        nucleus.addColorStop(0.57, '#E5F0FF');
+        nucleus.addColorStop(0.84, '#CDDEFA');
+        nucleus.addColorStop(1, '#AFCDF8');
+      }
 
       context.save();
-      context.shadowColor = accent;
-      context.shadowBlur = size * 0.035;
+      context.shadowColor = darkMode
+        ? 'rgba(0,109,253,0.52)'
+        : 'rgba(0,109,253,0.20)';
+      context.shadowBlur = size * (darkMode ? 0.054 : 0.026);
       context.fillStyle = nucleus;
       context.beginPath();
       context.arc(center, center, coreRadius, 0, Math.PI * 2);
       context.fill();
       context.restore();
 
-      // Rim light gives the nucleus a visible curved edge.
-      context.strokeStyle = accent;
-      context.lineWidth = Math.max(1, size / 450);
-      context.globalAlpha = 0.55;
+      // A continuous, subtle edge; avoid the harsh partial-ring spotlight.
+      const rim = context.createLinearGradient(
+        center - coreRadius,
+        center - coreRadius,
+        center + coreRadius,
+        center + coreRadius,
+      );
+      rim.addColorStop(0, darkMode ? '#80B6FE' : '#3D89F5');
+      rim.addColorStop(0.5, darkMode ? '#2C69C0' : '#83B5F6');
+      rim.addColorStop(1, darkMode ? '#0F315C' : '#D6E7FF');
+      context.strokeStyle = rim;
+      context.lineWidth = Math.max(1, size / 420);
+      context.globalAlpha = darkMode ? 0.87 : 0.70;
       context.beginPath();
-      context.arc(center, center, coreRadius, Math.PI * 0.85, Math.PI * 1.8);
+      context.arc(center, center, coreRadius, 0, Math.PI * 2);
       context.stroke();
 
       // Tilted ring around the nucleus.
-      context.globalAlpha = 0.3;
+      context.globalAlpha = darkMode ? 0.36 : 0.25;
       context.beginPath();
       context.ellipse(
         center, center,

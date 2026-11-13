@@ -6,7 +6,7 @@ import { ComputingIllustration } from './ComputingIllustration';
 import { BusinessDataStream } from './BusinessDataStream';
 import { CustomerExperienceIllustration } from './CustomerExperienceIllustration';
 
-export function SystemsPurposeSection() {
+export function SystemsPurposeSection({ narrative = 'services' }: { narrative?: 'about' | 'services' }) {
   return (
     <section
       id="systems-purpose"
@@ -16,7 +16,7 @@ export function SystemsPurposeSection() {
         <div className="lg:pt-3">
           <p className="inline-flex h-fit w-fit self-start items-center gap-2 rounded-full border border-border bg-surface-subtle px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-accent" />
-          Why Rcentz Systems
+          {narrative === 'about' ? 'What guides us' : 'Why these systems matter'}
         </p>
 
         </div>
@@ -26,17 +26,19 @@ export function SystemsPurposeSection() {
             id="systems-purpose-title"
             className={rcentzTypography.className + ' font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
             <span className="block font-semibold text-muted-foreground lg:pl-12">
-              Building digital infrastructure
+              {narrative === 'about' ? 'Technology starts with people.' : 'Customer experiences.'}
             </span>
             <span className="mt-2 block font-extrabold text-foreground">
-              around your business.
+              {narrative === 'about' ? 'Purpose gives it direction.' : 'Supported by dependable systems.'}
             </span>
           </h2>
 
           <p className="mt-4 max-w-3xl text-sm leading-6 sm:text-base sm:leading-7 text-muted-foreground">
-            We bring your ideas, processes and information together into applications
-            that help people access your services, coordinate their work and keep
-            your business moving.
+            {narrative === 'about' ? (
+              'We listen to how people work, identify what makes things harder than they should be, and build with clarity. The same thinking guides our client work and our own products.'
+            ) : (
+              'Every business has its own priorities. We turn them into websites, applications and connected workflows that customers and teams can use with confidence.'
+            )}
           </p>
         </div>
       </div>

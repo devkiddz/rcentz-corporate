@@ -424,15 +424,15 @@ export function SystemsToolsSection() {
             id="systems-tools-title"
             className={rcentzTypography.className + ' font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
             <span className="block font-semibold text-muted-foreground lg:pl-12">
-              Proven technology.
+              The right technology.
             </span>
             <span className="mt-2 block font-extrabold text-foreground">
-              Built around your business.
+              For the problem at hand.
             </span>
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-6 sm:text-base sm:leading-7 text-muted-foreground">
-            We choose the right tools to build your applications, connect
-            your data and support how your company works.
+            We select tools for their fit: how well they support your requirements,
+            your data and the people maintaining the system after launch.
           </p>
         </div>
       </div>

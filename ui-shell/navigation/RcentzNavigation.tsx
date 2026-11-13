@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { rcentzNavigationItems } from './rcentz-navigation-items';
 import { RcentzProductsMenu } from './RcentzProductsMenu';
 import { RcentzIllustratedMenu } from './RcentzIllustratedMenu';
+import { RcentzResourcesMenu } from './RcentzResourcesMenu';
 
 type RcentzNavigationProps = {
   mobile?: boolean;
@@ -24,15 +25,14 @@ export function RcentzNavigation({
 
   useEffect(() => {
     function dismiss(event: PointerEvent) {
-      nav.current?.querySelectorAll('details[open]').forEach((details) => {
+      nav.current?.querySelectorAll('details[open]').forEach(details => {
         if (event.target instanceof Node && !details.contains(event.target))
           details.removeAttribute('open');
       });
     }
     function escape(event: KeyboardEvent) {
       if (event.key !== 'Escape') return;
-      const open =
-        nav.current?.querySelector<HTMLDetailsElement>('details[open]');
+      const open = nav.current?.querySelector<HTMLDetailsElement>('details[open]');
       open?.removeAttribute('open');
       open?.querySelector('summary')?.focus();
     }
@@ -46,7 +46,7 @@ export function RcentzNavigation({
   }, []);
 
   function closeOthers(current: HTMLDetailsElement) {
-    nav.current?.querySelectorAll('details[open]').forEach((details) => {
+    nav.current?.querySelectorAll('details[open]').forEach(details => {
       if (details !== current) details.removeAttribute('open');
     });
   }
@@ -54,13 +54,13 @@ export function RcentzNavigation({
     window.clearTimeout(closeTimer.current);
     nav.current
       ?.querySelectorAll('details[open]')
-      .forEach((details) => details.removeAttribute('open'));
+      .forEach(details => details.removeAttribute('open'));
     onNavigate?.();
   }
   const linkClass = [
     'inline-flex items-center rounded-lg text-muted-foreground transition-colors hover:bg-surface-muted hover:text-foreground',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-    compact ? 'min-h-9 px-1.5 text-[9px]' : 'min-h-11 px-2 text-[13px]',
+    compact ? 'min-h-9 px-1.5 text-[9px]' : 'min-h-11 px-2 text-[14px]',
     mobile ? 'w-full px-3 text-sm' : ''
   ].join(' ');
 
@@ -74,43 +74,38 @@ export function RcentzNavigation({
             ? 'Mobile navigation'
             : 'Primary navigation'
       }
-      className={mobile ? 'flex flex-col gap-1' : 'flex items-center gap-0.5'}
-    >
-      {rcentzNavigationItems.map((item) =>
+      className={mobile ? 'flex flex-col gap-1' : 'flex items-center gap-0.5'}>
+      {rcentzNavigationItems.map(item =>
         'children' in item ? (
           <details
             key={item.label}
             className="group relative"
-            onPointerEnter={(event) => {
+            onPointerEnter={event => {
               if (mobile || event.pointerType !== 'mouse') return;
               window.clearTimeout(closeTimer.current);
               closeOthers(event.currentTarget);
               event.currentTarget.open = true;
             }}
-            onPointerLeave={(event) => {
+            onPointerLeave={event => {
               if (mobile || event.pointerType !== 'mouse') return;
               const target = event.currentTarget;
               closeTimer.current = window.setTimeout(() => {
-                if (!target.contains(document.activeElement))
-                  target.open = false;
+                if (!target.contains(document.activeElement)) target.open = false;
               }, 180);
             }}
-            onBlurCapture={(event) => {
+            onBlurCapture={event => {
               if (!event.currentTarget.contains(event.relatedTarget))
                 event.currentTarget.open = false;
             }}
-            onToggle={(event) => {
+            onToggle={event => {
               if (event.currentTarget.open) closeOthers(event.currentTarget);
-              if (item.label === 'Products')
-                setProductsOpen(event.currentTarget.open);
-            }}
-          >
+              if (item.label === 'Products') setProductsOpen(event.currentTarget.open);
+            }}>
             <summary
               className={
                 linkClass +
                 ' cursor-pointer list-none gap-1 [&::-webkit-details-marker]:hidden'
-              }
-            >
+              }>
               {item.label}
               <ChevronDown
                 aria-hidden="true"
@@ -119,11 +114,8 @@ export function RcentzNavigation({
             </summary>
             <div
               className={
-                mobile
-                  ? 'mx-1 pb-2 pt-1'
-                  : 'absolute left-0 top-full z-50 pt-2'
-              }
-            >
+                mobile ? 'mx-1 pb-2 pt-1' : 'absolute left-0 top-full z-50 pt-2'
+              }>
               <div
                 className={[
                   'rounded-xl border border-border bg-background shadow-sm',
@@ -133,22 +125,24 @@ export function RcentzNavigation({
                       ? 'w-full'
                       : compact
                         ? 'w-64'
-                        : 'w-[800px] max-w-[calc(100vw-2rem)]'
-                ].join(' ')}
-              >
+                        : item.label === 'Resources'
+                          ? 'w-[1060px] max-w-[calc(100vw-2rem)]'
+                          : 'w-[800px] max-w-[calc(100vw-2rem)]'
+                ].join(' ')}>
                 {item.label === 'Products' && !compact ? (
                   productsOpen ? (
                     <RcentzProductsMenu onNavigate={navigate} />
                   ) : null
+                ) : item.label === 'Resources' ? (
+                  <RcentzResourcesMenu
+                    items={item.children}
+                    mobile={mobile}
+                    compact={compact}
+                    onNavigate={navigate}
+                  />
                 ) : (
                   <RcentzIllustratedMenu
-                    kind={
-                      item.label === 'Resources'
-                        ? 'resources'
-                        : item.label === 'Products'
-                          ? 'products'
-                          : 'solutions'
-                    }
+                    kind="products"
                     items={item.children}
                     compact={compact}
                     onNavigate={navigate}
@@ -161,9 +155,10 @@ export function RcentzNavigation({
           <Link
             key={item.label}
             href={item.href}
+            target={item.label === 'Services' ? '_blank' : undefined}
+            rel={item.label === 'Services' ? 'noopener noreferrer' : undefined}
             onClick={navigate}
-            className={linkClass}
-          >
+            className={linkClass}>
             {item.label}
           </Link>
         )

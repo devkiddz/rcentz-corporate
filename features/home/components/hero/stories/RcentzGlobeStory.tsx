@@ -297,8 +297,8 @@ export function RcentzGlobeStory() {
           />
 
           <div className="relative flex flex-col items-center">
-            <p className="bg-gradient-to-r from-foreground via-theme-accent to-theme-accent-strong bg-clip-text text-[13px] font-semibold leading-none tracking-[-0.035em] text-transparent lg:text-[14px]">
-              Rcentz Core
+            <p className="text-[13px] font-semibold leading-none tracking-[-0.035em] text-foreground lg:text-[14px]">
+              Rcentz <span className="text-theme-accent">Core</span>
             </p>
 
             <p className="mt-1 font-mono text-[5px] uppercase leading-none tracking-[0.13em] text-muted lg:text-[6px]">

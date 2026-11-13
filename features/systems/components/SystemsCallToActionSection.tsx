@@ -9,7 +9,7 @@ import { RcentzGithubIcon } from '@/ui-shell/brand/RcentzGithubIcon';
 
 
 
-export function SystemsCallToActionSection() {
+export function SystemsCallToActionSection({ narrative = 'services' }: { narrative?: 'corporate' | 'services' }) {
   return (
     <section
       id="start-project"
@@ -19,24 +19,24 @@ export function SystemsCallToActionSection() {
         <h2
           id="systems-cta-title"
           className={rcentzTypography.className + ' max-w-3xl lg:col-start-2 font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
-          Your next business move.
-          <span className="block">Built into software.</span>
+          {narrative === 'corporate' ? 'Built with purpose.' : 'A clear starting point.'}
+          <span className="block">{narrative === 'corporate' ? 'For businesses and beyond.' : 'For your next software project.'}</span>
         </h2>
 
         <div className="self-center lg:col-start-1 lg:row-start-2">
           <p className="max-w-sm text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-            Your business has a way of working.
+            {narrative === 'corporate' ? 'We build with businesses.' : 'Tell us what needs to change.'}
             <span className="block text-muted-foreground">
-              Give it software that works with it.
+              {narrative === 'corporate' ? 'And explore products of our own.' : 'We will shape the next steps together.'}
             </span>
           </p>
 
-          <p className="mt-10 text-sm text-muted-foreground">Capabilities</p>
+          <p className="mt-10 text-sm text-muted-foreground">{narrative === 'corporate' ? 'Across Rcentz' : 'What we deliver'}</p>
           <ul className="mt-3 space-y-2 text-sm font-semibold leading-6">
-            <li>Customer portals</li>
-            <li>Business workflows</li>
-            <li>Connected information</li>
-            <li>Remote delivery and support</li>
+            <li>{narrative === 'corporate' ? 'Websites and applications' : 'Customer portals'}</li>
+            <li>{narrative === 'corporate' ? 'Connected business systems' : 'Business workflows'}</li>
+            <li>{narrative === 'corporate' ? 'Original digital products' : 'Connected information'}</li>
+            <li>{narrative === 'corporate' ? 'Long-term product thinking' : 'Remote delivery and support'}</li>
           </ul>
         </div>
 

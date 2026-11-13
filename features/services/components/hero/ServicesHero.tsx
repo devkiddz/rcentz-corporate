@@ -56,13 +56,13 @@ export function ServicesHero() {
           <h1
             id="systems-hero-title"
             className={rcentzTypography.className + ' font-bold tracking-normal text-[2rem] sm:text-[2.5rem] lg:text-5xl leading-[1.18]'}>
-            Software built around{' '}
-            <span className="text-theme-accent">your business.</span>
+            From business needs to{' '}
+            <span className="text-theme-accent">working software.</span>
           </h1>
 
           <p className="mt-4 max-w-md text-sm leading-6 text-muted-foreground sm:text-base">
-            Websites, business applications and connected workflows
-            that help you serve customers and run your operations.
+            Rcentz Systems designs and delivers websites, applications and
+            connected workflows that solve practical business problems.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">

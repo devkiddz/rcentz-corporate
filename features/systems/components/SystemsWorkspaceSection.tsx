@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react';
 import { ProjectOverviewIllustration, WORKSPACE_STORY } from './ProjectOverviewIllustration';
 
-export function SystemsWorkspaceSection() {
+export function SystemsWorkspaceSection({ narrative = 'services' }: { narrative?: 'corporate' | 'services' }) {
   const [selected, setSelected] = useState(0);
   const [revision, setRevision] = useState(0);
   const [pressed, setPressed] = useState(false);
@@ -62,7 +62,7 @@ export function SystemsWorkspaceSection() {
         <div className="lg:pt-3">
           <p className="inline-flex h-fit w-fit self-start items-center gap-2 rounded-full border border-border bg-surface-subtle px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-accent" />
-            How we work
+            {narrative === 'corporate' ? 'Our approach' : 'Project delivery'}
           </p>
         </div>
         <div className="min-w-0">
@@ -70,15 +70,18 @@ export function SystemsWorkspaceSection() {
             id="systems-workspace-title"
             className={rcentzTypography.className + ' font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
             <span className="block font-semibold text-muted-foreground lg:pl-12">
-              Your project, in view.
+              {narrative === 'corporate' ? 'Understand the problem.' : 'A clear brief.'}
             </span>
             <span className="mt-2 block font-extrabold text-foreground">
-              From first brief to launch.
+              {narrative === 'corporate' ? 'Make progress visible.' : 'A shared view of progress.'}
             </span>
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-6 sm:text-base sm:leading-7 text-muted-foreground">
-            Follow milestones, review working features and keep decisions
-            together in your project workspace.
+            {narrative === 'corporate' ? (
+              'We begin with people and their needs, plan the work, and build in clear stages. Thoughtful collaboration shapes better software.'
+            ) : (
+              'See how requirements become milestones, reviews and working previews. Rcentz Systems keeps decisions and delivery aligned.'
+            )}
           </p>
         </div>
       </div>

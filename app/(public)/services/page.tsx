@@ -4,7 +4,7 @@ import { SystemsOverviewSections } from '@/features/systems/components/SystemsOv
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Website development, business software, connected workflows and project delivery from Rcentz.',
+  description: 'Explore how Rcentz Systems delivers websites, business applications, customer experiences and connected workflows.',
 };
 
 /** The original Systems homepage, moved as actual components—not redrawn. */

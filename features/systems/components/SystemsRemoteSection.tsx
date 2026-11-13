@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { RemoteDeliveryGlobe, deliveries } from './RemoteDeliveryGlobe';
 import styles from './SystemsRemoteSection.module.css';
 
-export function SystemsRemoteSection() {
+export function SystemsRemoteSection({ narrative = 'services' }: { narrative?: 'about' | 'services' }) {
   const [active, setActive] = useState(-1);
   const list = useRef<HTMLOListElement>(null);
   const items = useRef<Array<HTMLLIElement | null>>([]);
@@ -44,23 +44,25 @@ export function SystemsRemoteSection() {
           <div>
             <p className="inline-flex h-fit w-fit self-start items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
               <span aria-hidden="true" className="size-1.5 rounded-full bg-theme-accent" />
-              Remote delivery
+              {narrative === 'about' ? 'How we collaborate' : 'Remote delivery'}
             </p>
             <h2
               id="systems-remote-title"
               className={rcentzTypography.className + ' mt-4 font-extrabold tracking-normal text-3xl sm:text-4xl lg:text-[2.5rem] leading-[1.18]'}>
               <span className="block font-semibold text-muted-foreground">
-                Built for your business.
+                {narrative === 'about' ? 'Close collaboration.' : 'The work stays visible.'}
               </span>
               <span className="mt-2 block font-extrabold text-foreground">
-                Delivered across borders.
+                {narrative === 'about' ? 'Across every distance.' : 'Wherever you are.'}
               </span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-6 text-muted-foreground">
-            Work directly with Rcentz to plan, build and launch remotely.
-            Follow progress, review working previews and stay involved
-            from the first brief to delivery.
+            {narrative === 'about' ? (
+              'We collaborate across locations with clear briefs, shared milestones and working previews. Clients stay involved in decisions, from planning through delivery.'
+            ) : (
+              'Review progress, give feedback and make decisions without being in the same room. Our delivery process keeps your project connected from brief to handover.'
+            )}
           </p>
         </div>
 

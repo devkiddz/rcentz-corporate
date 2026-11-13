@@ -10,13 +10,13 @@ export default function CorporateHero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,var(--background),transparent_65%)] opacity-80" />
       <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center px-6 py-14 text-center sm:px-10 sm:py-16 lg:py-20">
         <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-foreground backdrop-blur-md">
-          <span className="size-1.5 rounded-full bg-primary" /> Software · Systems · Solutions
+          <span className="size-1.5 rounded-full bg-primary" /> Rcentz · Software · Systems · Products
         </p>
         <h1 className="mt-7 max-w-[1050px] text-balance text-[clamp(2.8rem,4.7vw,5.2rem)] font-semibold leading-[1.08] tracking-[-0.052em]">
           Engineering digital solutions for a connected world.
         </h1>
         <p className="mt-6 max-w-[770px] text-pretty text-base font-medium leading-8 text-foreground/75 sm:text-lg">
-          We design and build websites, applications, and business systems that simplify operations and create better customer experiences.
+          Rcentz is a software company building for businesses and developing ideas of its own. Rcentz Systems delivers client solutions, while Rcentz Products explores original digital products.
         </p>
         <div className="mt-7 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
           <Link href="/services" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90">

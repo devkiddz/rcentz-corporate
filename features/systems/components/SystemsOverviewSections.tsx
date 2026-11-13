@@ -28,11 +28,11 @@ export function SystemsOverviewSections() {
           </div>
           <div>
             <h2 id="systems-pricing-title" className={rcentzTypography.className + ' text-3xl font-extrabold leading-tight sm:text-4xl lg:text-[2.5rem]'}>
-              A clear scope. An agreed project cost.
+              Clear requirements. A shared plan.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
-              Tell us what your business needs. We define the requirements,
-              milestones and cost before development begins.
+              We work with you to define the scope, responsibilities and cost
+              before development begins, so the project starts with clarity.
             </p>
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               <div className="border-t border-border pt-4">
